@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Logar</title>
+</head>
+  
+<body onload="javascript:document.getElementById('logar').style='display:none'">
+    <h2> LOGIN</h2>
+    <form method="post" action="logar.php">
+        <input id="nome" type="text" name="nome_email" class="input_name" placeholder="Nome/Email"><br>
+        <input id="senha" type="password" name="senha" class="input_senha" placeholder="senha"><br>
+        <button id="logar" type="submit">Logar</button>          
+    </form>
+
+    <button><a href="criarusuario.html">Cadastrar</a></button>
+</body>
+<script lang="javascript">
+    const input_name  = document.getElementById("nome");
+    const input_senha = document.getElementById("senha");
+
+    const callback_nome = async function (input) {
+        if (input_name.value) {
+            const response = await fetch("http://testes.local/buscar_usuario_nome.php?nome=" + input_name.value);
+            const json     = await response.json();
+            
+            if (json.success) {
+                input_name.className = "input_sucesso"
+            } else { 
+                input_name.className = "input_erro"
+            }
+        } else {
+            input_name.className = ""
+            document.getElementById('logar').style='display:none'
+        }
+    }
+
+    const callback_senha =  async function (input) {
+        if(input_name.value && input_senha.value){
+
+            const response = await fetch(`http://testes.local/buscar_usuario_senha.php?nome=${input_name.value}&senha=${input_senha.value}`);
+            
+            const json = await response.json();
+
+            console.log(json)
+            
+            if (json.success) {
+                input_senha.className = "input_sucesso"
+                document.getElementById('logar').style = 'display:hidden'
+                
+            }else{
+                input_senha.className = "input_erro"
+                
+            }
+        }else{
+            input_senha.className = ""
+            document.getElementById('logar').style='display:hidden'
+        }
+    }
+
+    input_name.addEventListener("keyup", callback_nome);
+    input_senha.addEventListener("keyup", callback_senha);
+
+</script>
+</html>

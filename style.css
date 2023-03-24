@@ -1,0 +1,58 @@
+button {
+    color: white;
+    background: rgb(19, 19, 19);
+    transition: background 2s;
+    margin:  5px 0px;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px 1px;
+    width: 200px;
+  }
+  
+  button:hover,
+  button:focus {
+    background: rgb(1, 139, 97);
+  } 
+
+
+
+body{
+  color: rgb(229, 229, 239);
+  background-color: #001934;
+  text-align: center;
+}
+
+input  {
+  padding: 0px 10px;
+  margin-top: 10px;
+  border: none;
+  width: 200px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+
+table{
+  display: inline-table;
+    
+}
+
+.input_erro {
+  border: 1px solid red !important;
+}
+
+.input_sucesso {
+  border: 1px solid greenyellow !important;
+}
+
+
