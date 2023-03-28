@@ -16,7 +16,7 @@
         <button id="logar" type="submit">Logar</button>          
     </form>
 
-    <button><a href="criarusuario.html">Cadastrar</a></button>
+   
 </body>
 <script lang="javascript">
     const input_name  = document.getElementById("nome");
@@ -29,8 +29,10 @@
             
             if (json.success) {
                 input_name.className = "input_sucesso"
+                
             } else { 
                 input_name.className = "input_erro"
+              
             }
         } else {
             input_name.className = ""
@@ -50,13 +52,14 @@
             if (json.success) {
                 input_senha.className = "input_sucesso"
                 document.getElementById('logar').style = 'display:hidden'
+                //alert("senha certa ")
                 
             }else{
                 input_senha.className = "input_erro"
-                
+       
             }
         }else{
-            input_senha.className = ""
+            input_senha.className = "input_erro"
             document.getElementById('logar').style='display:hidden'
         }
     }
@@ -64,5 +67,7 @@
     input_name.addEventListener("keyup", callback_nome);
     input_senha.addEventListener("keyup", callback_senha);
 
+
+    
 </script>
 </html>

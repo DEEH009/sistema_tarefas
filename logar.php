@@ -18,12 +18,15 @@ $buscaruseuarios = $db->query("SELECT * FROM users WHERE (nome ='{$nome_email}' 
                $_SESSION["usuario"]["id"]  = $row["id"] ;
                $_SESSION["usuario"]["nome"] = $row["nome"]; 
                $_SESSION["usuario_logado"] = true;
-                           
+               $_SESSION["usuario"]["adm"] = $row["adm"];
+                         
             }
+           
         }
     }else {
         echo $db->error;
         exit;
     }
-   header("location: index.php");
+    
+   header("location: servico.php");
             exit;

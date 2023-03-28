@@ -41,6 +41,25 @@
         }
     
     ?>
+
+    <?php
+     
+        $jogo = [
+            ["nome" =>"Final Fantasy III", "ano" => 1990 , "grafico" => "2D"],
+            ["nome" => " The Secret of Monkey Island", "ano" => 1990, "grafico" => "2D"],
+            ["nome" => "Myst", "ano" => 1993,  "grafico" => "3D"],
+            ["nome" => "Full Throttle", "ano" => 1995, "grafico" => "3D"],
+            ["nome" => " Duke Nukem 3D", "ano" => 1996, "grafico" => "3D" ]
+
+        ];
+       
+        foreach($jogo as $descricao ){
+            foreach ($descricao as $key => $value) {
+                echo   $value  ."<br>"  ;
+            }
+        }
+    
+      ?>
         <table> 
             <thead>
                 <th>Tarefas</th>
@@ -70,6 +89,8 @@
         </table>
         <br>
    <button><a href="logout.php">Sair</a></button>    
+   <button><a href="servico.php">Voltar</a></button>   
+ 
 
 </body>
 
